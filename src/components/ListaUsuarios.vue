@@ -1,6 +1,6 @@
 <template>
 	<v-container>
-		<v-simple-table class="elevation-10" :elevation="15">
+		<v-simple-table class="elevation-10">
 			<!-- HEADERS -->
 			<thead>
 				<tr>
@@ -22,7 +22,9 @@
 					<td>{{usuario.phone}}</td>
 					<td>{{usuario.website}}</td>
 					<td>{{usuario.company.name}}</td>
-					<td></td>
+					<td>
+						<EditorDialogo :usuario="usuario"/>
+					</td>
 				</tr>
 			</tbody>
 		</v-simple-table>
@@ -30,10 +32,16 @@
 </template>
 
 <script>
+import EditorDialogo from "./EditorUsuario";
+
 const axios = require("axios").default;
 
 export default {
 	name: "ListaUsuarios",
+
+	components: {
+		EditorDialogo,
+	},
 
 	data: function() {
 		return {
