@@ -23,6 +23,7 @@
 					<td>{{usuario.website}}</td>
 					<td>{{usuario.company.name}}</td>
 					<td>
+						<v-btn icon small tile @click="eliminarUsuario(usuario.id)">b</v-btn>
 						<EditorDialogo :usuario="usuario"/>
 					</td>
 				</tr>
@@ -35,6 +36,7 @@
 import EditorDialogo from "./EditorUsuario";
 
 const axios = require("axios").default;
+const usersEnd = "https://jsonplaceholder.typicode.com/users";
 
 export default {
 	name: "ListaUsuarios",
@@ -51,10 +53,24 @@ export default {
 
 	methods: {
 		conseguirUsuarios: function() {
-			axios.get("https://jsonplaceholder.typicode.com/users")
+			axios.get(usersEnd)
 				.then(res => this.usuarios = res.data)
 				.catch(err => console.error(err));
 		},
+
+		eliminarUsuario(id) {
+			axios.delete(usersEnd + "/" + id)
+				.then(() => console.log("eliminado usuario "+id))
+				.catch(err => console.error(err));
+
+			// hago el cambio visible manualmente porque la base de datos no se actualiza de verdad
+			this.usuarios.forEach((usuario, i) => {
+				console.log(i);
+				if (usuario.id === id) {
+					this.usuarios.splice(i, 1);
+				}
+			});
+		}
 	},
 
 	created() {
