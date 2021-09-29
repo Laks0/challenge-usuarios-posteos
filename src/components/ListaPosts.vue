@@ -19,8 +19,8 @@
 			<v-card-text>
 				<v-card width="400" class="ma-2 elevation-5 d-inline-block" v-for="post in posts" :key="post.id">
 					<v-card-actions>
-						<span v-if="post.habilitado" class="success pa-2 rounded-pill">HABILITADO</span>
-						<span v-if="!post.habilitado" class="error pa-2 rounded-pill">DESHABILITADO</span>
+						<span v-if="post.habilitado" class="success pa-2 rounded-pill"><b>HABILITADO</b></span>
+						<span v-if="!post.habilitado" class="error pa-2 rounded-pill"><b>DESHABILITADO</b></span>
 						<v-spacer/>
 						<v-checkbox
 								v-model="post.seleccionado"
