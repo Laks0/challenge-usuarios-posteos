@@ -23,8 +23,9 @@
 					<td>{{usuario.website}}</td>
 					<td>{{usuario.company.name}}</td>
 					<td>
-						<v-btn icon small tile @click="eliminarUsuario(usuario.id)">b</v-btn>
+						<v-icon icon @click="eliminarUsuario(usuario.id)">mdi-delete</v-icon>
 						<EditorDialogo :usuario="usuario"/>
+						<ListaPosts :id="usuario.id" :usuario="usuario.name"/>
 					</td>
 				</tr>
 			</tbody>
@@ -34,6 +35,7 @@
 
 <script>
 import EditorDialogo from "./EditorUsuario";
+import ListaPosts from "./ListaPosts.vue";
 
 const axios = require("axios").default;
 const usersEnd = "https://jsonplaceholder.typicode.com/users";
@@ -43,6 +45,7 @@ export default {
 
 	components: {
 		EditorDialogo,
+		ListaPosts,
 	},
 
 	data: function() {

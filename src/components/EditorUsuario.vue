@@ -5,7 +5,7 @@
 		v-model="activo"
 		persistent>
 		<template v-slot:activator="{on}">
-			<v-btn v-on="on" icon small tile>e</v-btn>
+			<v-icon v-on="on">mdi-pencil</v-icon>
 		</template>
 		<v-form>
 			<v-card>
