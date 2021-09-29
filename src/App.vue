@@ -37,24 +37,21 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main>
-      <HelloWorld/>
+    <v-main class="pink lighten-2">
+			<ListaUsuarios/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+
+import ListaUsuarios from './components/ListaUsuarios';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    ListaUsuarios,
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
